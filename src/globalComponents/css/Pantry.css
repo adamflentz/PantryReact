@@ -1,0 +1,22 @@
+.pantry {
+    font-family: Futura-Medium;
+    font-size: 32px;
+    color: #333333;
+    text-align: left;
+    justify-self: start;
+    background-color: #FFFFFF;
+    grid-area: pantries;
+    width: 95%;
+    height: 95%;
+}
+
+.pantryLink{
+    color: #333333;
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+h1 {
+    font-weight: normal;
+    color: #333333;
+}

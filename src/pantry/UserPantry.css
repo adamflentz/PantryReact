@@ -1,0 +1,11 @@
+.pantryTitle {
+    text-align: center;
+    font-family: Futura-Medium;
+    font-size: 32px;
+    color: #333333;
+    justify-self: start;
+    background-color: #FFFFFF;
+    grid-area: pantries;
+    width: 95%;
+    height: 95%;
+}

@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+
+.Dashboard {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  height:90vh;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+   align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #F6F6F6;
+  height: 36px;
+  width: 100%;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.PrimaryPanel {
+  background-color: #F6F6F6;
+  display: grid;
+  width: 90vw;
+  height: 45vh;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-rows: auto;
+  justify-items: center;
+  grid-template-areas: "pantries recipes activities";
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  height: 100%;
+  font-size: 100%;
+}
+
+@media only screen and (max-width: 768px)
+{
+  .PrimaryPanel {
+    background-color: #F6F6F6;
+    display: grid;
+    width: 90vw;
+    height: 50vh;
+    grid-template-columns: auto;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    grid-template-areas: "pantries recipes activities";
+  }
+}

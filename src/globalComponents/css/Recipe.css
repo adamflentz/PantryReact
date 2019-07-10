@@ -1,0 +1,21 @@
+.recipe {
+    font-family: Futura-Medium;
+    font-size: 32px;
+    color: #333333;
+    text-align: left;
+    background-color: #FFFFFF;
+    width: 95%;
+    height: 95%;
+    grid-area: recipes;
+}
+
+.recipeLink{
+    color: #333333;
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+h1 {
+    font-weight: normal;
+    color: #333333;
+}

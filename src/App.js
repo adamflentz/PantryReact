@@ -11,7 +11,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import {getCurrentUser} from "./util/APIUtils";
+import {getCurrentUser} from "./util/AuthAPIUtils";
 import PrivateRoute from "./common/PrivateRoute";
 
 class App extends Component {

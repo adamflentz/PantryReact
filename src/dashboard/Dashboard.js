@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
-import Pantry from '../globalComponents/js/Pantry';
+import PantryList from '../globalComponents/js/PantryList';
 import Recipe from '../globalComponents/js/Recipe';
 import Activity from '../globalComponents/js/Activity';
 import Featured from "../globalComponents/js/Featured";
@@ -30,7 +30,7 @@ class Dashboard extends Component {
         return (
             <div className="Dashboard">
                 <div className="PrimaryPanel">
-                    <Pantry/>
+                    <PantryList/>
                     <Recipe/>
                     <Activity/>
                 </div>

@@ -65,7 +65,7 @@ class LoginForm extends Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
 
         const loginRequest = Object.assign({}, this.state);

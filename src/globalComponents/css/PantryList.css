@@ -8,15 +8,28 @@
     grid-area: pantries;
     width: 95%;
     height: 95%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pantryElement {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.pantryContent {
+    margin-left: 30px;
 }
 
 .pantryLink{
     color: #333333;
-    margin-top: 60px;
-    margin-left: 30px;
 }
 
 h1 {
     font-weight: normal;
     color: #333333;
+    height: 32px;
 }

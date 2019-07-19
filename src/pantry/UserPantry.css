@@ -3,9 +3,10 @@
     font-family: Futura-Medium;
     font-size: 32px;
     color: #333333;
-    justify-self: start;
+}
+
+.yourPantry {
+    text-align: center;
     background-color: #FFFFFF;
-    grid-area: pantries;
-    width: 95%;
-    height: 95%;
+    margin: 0;
 }

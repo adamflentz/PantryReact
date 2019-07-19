@@ -33,3 +33,14 @@ export function getUserPantries() {
     })
 
 }
+
+export function getPantry(id) {
+    if (localStorage.getItem(ACCESS_TOKEN) == null) {
+        return Promise.reject("No user provided");
+    }
+
+    return request({
+        url: PANTRY_API_BASE_URL + "/pantry/pantry?id=" + id
+    })
+
+}

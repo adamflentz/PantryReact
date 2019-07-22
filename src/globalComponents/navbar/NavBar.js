@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import '../css/NavBar.css';
+import './NavBar.css';
+import LoginButton from './loginButton/LoginButton';
 
 class NavBar extends Component {
 
@@ -12,6 +13,9 @@ class NavBar extends Component {
                 <div className="Profile">
                 {this.props.authenticated &&
                     <button className="LogoutButton" onClick={this.props.onLogout}>Logout</button>
+                }
+                {!this.props.authenticated && 
+                    <LoginButton loadUser={this.props.loadUser}/>
                 }
                 </div>
             </div>

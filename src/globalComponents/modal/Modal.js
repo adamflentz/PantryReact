@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './IngredientModal.css';
+import './Modal.css';
 
-class IngredientModal extends Component {
+class Modal extends Component {
 
     componentDidMount = () => {
         document.addEventListener('mousedown', this.handleExitFunction);
@@ -41,12 +41,11 @@ class IngredientModal extends Component {
         return(
             <div className="modalContainer">
                 <div ref={this.setWrapperRef} className="modalContent">
-                    <h1 onClick={this.props.toggleModal}>{this.props.ingredient.name}</h1>
-                    <p>{this.props.ingredient.description}</p>
+                    {this.props.children}
                 </div>
             </div>
         )
     }
 }
 
-export default IngredientModal;
+export default Modal;

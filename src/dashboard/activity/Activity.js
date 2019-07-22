@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/Activity.css';
+import './Activity.css';
 
 class activity extends Component {
 

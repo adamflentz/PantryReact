@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import NavBar from './globalComponents/js/NavBar';
+import NavBar from './globalComponents/navbar/NavBar';
 import Dashboard from './dashboard/Dashboard'
 import UserPantry from './pantry/UserPantry'
 import {ACCESS_TOKEN} from './constants/Constants';
-import Login from './login/Login'
 import SignUp from './signup/SignUp'
 import Alert from 'react-s-alert';
 import {
@@ -13,6 +12,7 @@ import {
 } from 'react-router-dom';
 import {getCurrentUser} from "./util/AuthAPIUtils";
 import PrivateRoute from "./common/PrivateRoute";
+import LoginPage from './globalComponents/login/loginPage/LoginPage';
 
 class App extends Component {
     constructor(props) {
@@ -22,11 +22,9 @@ class App extends Component {
             currentUser: null,
             loading: true
         }
-        this.loadUser = this.loadUser.bind(this);
-        this.handleLogout = this.handleLogout.bind(this);
     }
 
-    handleLogout() {
+    handleLogout = () => {
         localStorage.removeItem(ACCESS_TOKEN);
         this.setState({
             authenticated: false,
@@ -40,7 +38,7 @@ class App extends Component {
         this.loadUser();
     }
 
-    loadUser() {
+    loadUser = () => {
         this.setState({
             loading: true
         });
@@ -63,7 +61,7 @@ class App extends Component {
             return (
             <div className="App">
                 <header className="App-header">
-                    <NavBar authenticated={this.state.authenticated} onLogout={this.handleLogout}/>
+                    <NavBar authenticated={this.state.authenticated} onLogout={this.handleLogout} loadUser={this.loadUser}/>
                 </header>
                 {!this.state.loading &&
                 <Switch>
@@ -76,7 +74,7 @@ class App extends Component {
                     {/* <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}></Route>   */}
                     {/* <Route component={NotFound}></Route> */}
                     <Route path="/login"
-                           render={(props) => <Login authenticated={this.state.authenticated} {...props} loadUser={this.loadUser}/>}/>
+                           render={(props) => <LoginPage authenticated={this.state.authenticated} {...props} loadUser={this.loadUser}/>}/>
                     <Route path="/signup"
                            render={(props) => <SignUp authenticated={this.state.authenticated} {...props} />}/>
                 </Switch>

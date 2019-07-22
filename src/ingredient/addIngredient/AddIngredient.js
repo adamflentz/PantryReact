@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import IngredientModal from './IngredientModal';
-import './IngredientElement.css'
+import Modal from '../../globalComponents/modal/Modal';
+import './AddIngredient.css';
 
-class IngredientElement extends Component {
+class AddIngredient extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,24 +28,29 @@ class IngredientElement extends Component {
         var linkStyle;
         if (this.state.hover) {
             linkStyle = {
-                backgroundColor: 'grey',
-                transition: '0.3s'
+                color: '#A272AF',
+                transition: '0.3s',
+                fontSize: '10px',
             }
         } else {
             linkStyle = {
-                backgroundColor: 'white',
-                transition: '0.3s'
+                color: '#D3ADFE',
+                transition: '0.3s',
+                fontSize: '10px',
+
             }
         }
         return (
             <div className="ingredientElement">
-                <h1 style={linkStyle} onClick={this.toggleModal} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="pantryIngredientElement">{this.props.ingredient.name}</h1>
+                <h1 style={linkStyle} onClick={this.toggleModal} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="addIngredientButton">Add Ingredient...</h1>
                 <div className={showHideClassName}>
-                    <IngredientModal active={this.state.toggleModal} toggleModal={this.toggleModal} ingredient={this.props.ingredient}/>
+                    <Modal active={this.state.toggleModal} toggleModal={this.toggleModal}>
+                        <h1>Ingredient Added</h1>
+                    </Modal>
                 </div>
             </div>
             )
     }
 }
 
-export default IngredientElement;
+export default AddIngredient;

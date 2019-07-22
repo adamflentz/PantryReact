@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router';
 import {getUserPantries} from '../../util/PantryAPIUtils.js'
-import '../css/PantryList.css';
+import './PantryList.css';
 
 
 class PantryList extends Component {

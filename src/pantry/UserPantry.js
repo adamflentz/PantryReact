@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './UserPantry.css';
 import { getUserPantries, getPantry } from '../util/PantryAPIUtils';
-import IngredientElement from './IngredientElement';
+import IngredientElement from '../ingredient/ingredientElement/IngredientElement';
+import AddIngredient from '../ingredient/addIngredient/AddIngredient';
 
 class UserPantry extends Component {
     constructor(props) {
@@ -52,8 +53,12 @@ class UserPantry extends Component {
         return (
             <div className="yourPantry">
                 {!this.state.loading && 
-                <h1 className="pantryTitle">{this.state.pantryName}</h1>
+                <div className="yourPantryTitleBarContainer">
+                    <h1 className="pantryTitle">{this.state.pantryName}</h1>
+                    <AddIngredient/>
+                </div>
                 }
+                <hr/>
                 {this.state.loading && 
                 <p>Loading...</p>}
                 {!this.state.loading && 

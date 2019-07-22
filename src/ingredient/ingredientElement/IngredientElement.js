@@ -31,13 +31,15 @@ class IngredientElement extends Component {
             linkStyle = {
                 backgroundColor: 'grey',
                 transition: '0.3s',
-                margin: '0 auto'
+                margin: '0 auto',
+                width: '100%'
             }
         } else {
             linkStyle = {
                 backgroundColor: 'white',
                 transition: '0.3s',
-                margin: '0 auto'
+                margin: '0 auto',
+                width: '100%'
             }
         }
         return (

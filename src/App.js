@@ -13,6 +13,7 @@ import {
 import {getCurrentUser} from "./util/AuthAPIUtils";
 import PrivateRoute from "./common/PrivateRoute";
 import LoginPage from './globalComponents/login/loginPage/LoginPage';
+import SplashPage from './splashPage/SplashPage';
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +21,8 @@ class App extends Component {
         this.state = {
             authenticated: false,
             currentUser: null,
-            loading: true
+            loading: true,
+            splashPage: false
         }
     }
 
@@ -29,7 +31,8 @@ class App extends Component {
         this.setState({
             authenticated: false,
             currentUser: null,
-            loading: false
+            loading: false,
+            splashPage: true
         });
         Alert.success("You're safely logged out!");
     }
@@ -48,7 +51,8 @@ class App extends Component {
                 this.setState({
                     currentUser: response,
                     authenticated: true,
-                    loading: false
+                    loading: false,
+                    splashPage: false
                 });
             }).catch(error => {
             this.setState({
@@ -65,12 +69,17 @@ class App extends Component {
                 </header>
                 {!this.state.loading &&
                 <Switch>
+                    {!this.state.splashPage && 
                     <PrivateRoute path={"/(dashboard|)"} authenticated={this.state.authenticated}
                                   currentUser={this.state.currentUser}
-                                  component={Dashboard}/>
+                                  component={Dashboard}/>}
                     <PrivateRoute path="/pantry" authenticated={this.state.authenticated}
                                   currentUser={this.state.currentUser}
                                   component={UserPantry}/>
+                    {this.state.splashPage && 
+                    <Route path="/"
+                           render={(props) => <SplashPage/>}/>
+                    }
                     {/* <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}></Route>   */}
                     {/* <Route component={NotFound}></Route> */}
                     <Route path="/login"

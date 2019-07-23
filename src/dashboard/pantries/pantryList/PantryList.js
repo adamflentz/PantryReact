@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router';
-import {getUserPantries} from '../../util/PantryAPIUtils.js'
+import {getUserPantries} from '../../../util/PantryAPIUtils.js'
+import AddPantry from '../addPantry/AddPantry'
 import './PantryList.css';
 
 
@@ -13,6 +14,10 @@ class PantryList extends Component {
         }
     }
     componentDidMount() {
+        this.getCurrentUserPantries();
+    }
+
+    getCurrentUserPantries = () => {
         getUserPantries().then(response => {
             var responsePantryList = []
             response.forEach(element => {
@@ -36,8 +41,7 @@ class PantryList extends Component {
     }
 
     render() {
-        
-        const pantries = this.state.pantryList.map((pantry, i) => {
+        const pantries = this.state.pantryList.length < 1 ? <AddPantry getUserPantries={this.getCurrentUserPantries}/> : this.state.pantryList.map((pantry, i) => {
             return <h1 className="pantryElement" key={i} onClick={() => {this.showPantry(pantry)}}> {pantry.pantryName} </h1>;
           });
         return (

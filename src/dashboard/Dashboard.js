@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
-import PantryList from './pantries/PantryList';
+import PantryList from './pantries/pantryList/PantryList';
 import Recipe from './recipe/Recipe';
 import Activity from './activity/Activity';
 import Featured from "./featured/Featured";

@@ -68,3 +68,15 @@ export function addIngredientToPantry(addIngredientToPantryRequest) {
         body: JSON.stringify(addIngredientToPantryRequest)
     })
 }
+
+export function addPantry(addPantryRequest) {
+    if (localStorage.getItem(ACCESS_TOKEN) == null) {
+        return Promise.reject("No user provided");
+    }
+
+    return request({
+        url: PANTRY_API_BASE_URL + "/pantry/create",
+        method: 'POST',
+        body: JSON.stringify(addPantryRequest)
+    })
+}

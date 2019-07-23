@@ -17,10 +17,13 @@ class UserPantry extends Component {
 
     componentDidMount() {
         console.log(this.props.location.state)
-        if (this.props.location.state.pantryId == null) {
+        if (this.props.location.state == null || this.props.location.state.pantryId == null) {
             getUserPantries().then(response => {
-                var primaryPantryId = response.filter(element => (element.primaryPantry).pantryId
-                )
+                console.log(response)
+                var primaryPantryId = response.find(element => 
+                    (element.primaryPantry)
+                ).pantryId;
+                console.log(primaryPantryId)
                 getPantry(primaryPantryId).then((response) => {
                     console.log(response.ingredientList)
                     this.setState({
@@ -65,12 +68,16 @@ class UserPantry extends Component {
                     <h1 className="pantryTitle">{this.state.pantryName}</h1>
                     <AddIngredient pantryId={this.state.pantry.pantryId} updatePantry={this.updatePantry}/>
                 </div>
-                }
-                <hr/>
+                }  
                 {this.state.loading && 
                 <p>Loading...</p>}
+                {ingredients.length > 0 && 
+                    <hr/>
+                }
                 {!this.state.loading && 
-                    ingredients
+                <div className="ingredientContainer"> 
+                    {ingredients}
+                </div>
                 }
             </div>
             )

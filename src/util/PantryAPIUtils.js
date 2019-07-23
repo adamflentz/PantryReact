@@ -44,3 +44,27 @@ export function getPantry(id) {
     })
 
 }
+
+export function addIngredient(ingredientRequest) {
+    if (localStorage.getItem(ACCESS_TOKEN) == null) {
+        return Promise.reject("No user provided");
+    }
+
+    return request({
+        url: PANTRY_API_BASE_URL + "/ingredient/create",
+        method: 'POST',
+        body: JSON.stringify(ingredientRequest)
+    })
+}
+
+export function addIngredientToPantry(addIngredientToPantryRequest) {
+    if (localStorage.getItem(ACCESS_TOKEN) == null) {
+        return Promise.reject("No user provided");
+    }
+
+    return request({
+        url: PANTRY_API_BASE_URL + "/pantry/addingredient",
+        method: 'POST',
+        body: JSON.stringify(addIngredientToPantryRequest)
+    })
+}

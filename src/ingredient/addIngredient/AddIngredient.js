@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Modal from '../../globalComponents/modal/Modal';
 import './AddIngredient.css';
+import IngredientForm from '../ingredientForm/IngredientForm'
 
 class AddIngredient extends Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class AddIngredient extends Component {
                 <h1 style={linkStyle} onClick={this.toggleModal} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover} className="addIngredientButton">Add Ingredient...</h1>
                 <div className={showHideClassName}>
                     <Modal active={this.state.toggleModal} toggleModal={this.toggleModal}>
-                        <h1>Ingredient Added</h1>
+                        <IngredientForm pantryId={this.props.pantryId} toggleModal={this.toggleModal} updatePantry={this.props.updatePantry}/>
                     </Modal>
                 </div>
             </div>

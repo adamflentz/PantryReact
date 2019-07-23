@@ -45,6 +45,14 @@ class UserPantry extends Component {
         }
     }
 
+    updatePantry = (newPantry) => {
+        this.setState({
+            pantry: newPantry,
+            pantryName: newPantry.pantryName,
+            ingredients: newPantry.ingredientList
+        })
+    }
+
     render() {
         console.log(this.state.pantry);
         const ingredients = this.state.ingredients.map((ingredient, i) => {
@@ -55,7 +63,7 @@ class UserPantry extends Component {
                 {!this.state.loading && 
                 <div className="yourPantryTitleBarContainer">
                     <h1 className="pantryTitle">{this.state.pantryName}</h1>
-                    <AddIngredient/>
+                    <AddIngredient pantryId={this.state.pantry.pantryId} updatePantry={this.updatePantry}/>
                 </div>
                 }
                 <hr/>
